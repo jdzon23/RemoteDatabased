@@ -6,9 +6,8 @@
 package remotedatabased;
 
 import java.sql.*;
-
-
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Jovanie
@@ -16,13 +15,18 @@ import java.sql.*;
 public class RemoteDatabased {
     
     Connection con = null;
-    
+    private final static Logger logger = Logger.getLogger(RemoteDatabased.class.getName());
     public static Connection connectDB(){
+        
         try {
+        
         Class.forName("com.mysql.jdbc.Driver");
-           Connection con = DriverManager.getConnection("jdbc:mysql://107.180.54.180:22/absoluteindustrialsolutions","useraisi","password1");  
-           System.err.println("Connection Success");
-           return con;
+           
+        Connection con = DriverManager.getConnection("jdbc:mysql://107.180.54.180:3306/absoluteindustrialsolutions","scope_aisi_user","aisi10xyz20");      
+        System.err.println("Connection Success");
+        logger.log(Level.SEVERE,con.toString());
+        return con;
+           
         } catch (Exception e) {
             System.err.println(e);
             return null;
