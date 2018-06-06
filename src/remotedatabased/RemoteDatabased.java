@@ -5,17 +5,29 @@
  */
 package remotedatabased;
 
+import java.sql.*;
+
+
+
 /**
  *
- * @author AISI
+ * @author Jovanie
  */
 public class RemoteDatabased {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    
+    Connection con = null;
+    
+    public static Connection connectDB(){
+        try {
+        Class.forName("com.mysql.jdbc.Driver");
+           Connection con = DriverManager.getConnection("jdbc:mysql://107.180.54.180:22/absoluteindustrialsolutions","useraisi","password1");  
+           System.err.println("Connection Success");
+           return con;
+        } catch (Exception e) {
+            System.err.println(e);
+            return null;
+        }
     }
+    
     
 }
