@@ -20,12 +20,11 @@ public class RemoteDatabased {
         
         try {
         
-        Class.forName("com.mysql.jdbc.Driver");
-           
-        Connection con = DriverManager.getConnection("jdbc:mysql://107.180.54.180:3306/absoluteindustrialsolutions","scope_aisi_user","aisi10xyz20");      
-        System.err.println("Connection Success");
-        logger.log(Level.SEVERE,con.toString());
-        return con;
+            Class.forName("com.mysql.jdbc.Driver");   
+            Connection con = DriverManager.getConnection("jdbc:mysql://107.180.54.180:3306/absoluteindustrialsolutions","scope_user_aisi","aisi10xyz20");      
+            System.err.println("Connection Success");
+            logger.log(Level.SEVERE,con.toString());
+            return con;
            
         } catch (Exception e) {
             System.err.println(e);
